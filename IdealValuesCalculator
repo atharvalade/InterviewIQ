@@ -1,0 +1,31 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+def calculate_ideal_values():
+    # Load the dataset from a CSV file
+    df = pd.read_csv("DataSet.csv")
+
+    # Split the data into features and labels
+    X = df[["Communication Skills", "Confidence", "Knowledge about Destination Country", "Clarity of Purpose", "Financial Preparedness"]]
+    y = df["Visa Received"]
+
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Train a Random Forest classifier
+    clf = RandomForestClassifier(n_estimators=100, random_state=42)
+    clf.fit(X_train, y_train)
+
+    # Get feature importance scores
+    feature_importance = clf.feature_importances_
+
+    # Create ideal values based on feature importance
+    # Normalize the feature importance scores to sum up to 1
+    ideal_values = feature_importance / feature_importance.sum()
+
+    # Print ideal values
+    print("Ideal Values (Normalized Feature Importance):")
+    return(ideal_values)
+
+
