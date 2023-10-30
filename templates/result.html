@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visa Assessment Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: left;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .improvement-area {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .improvement-area p {
+            color: #333;
+            font-weight: normal;
+        }
+
+        .strong-area {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <img id="logo" src="/static/logo.jpg" alt="Logo">
+        <h1>Visa Assessment Results</h1>
+    </div>
+    <div class="container">
+        <div class="improvement-area">
+            <p>Area of Most Needed Improvement: <span class="strong-area">{{ improvement_areas[0] }}</span></p>
+            {% if improvement_areas[0] == "Communication Skills" %}
+            <p>Improving your Communication Skills is paramount. The ability to express your intentions clearly and confidently is vital during a visa interview. Consider intensive language courses and real-world practice to enhance your communication.</p>
+            {% elif improvement_areas[0] == "Confidence" %}
+            <p>Boosting your Confidence is essential. Confidence plays a significant role in your visa interview. Consider participating in public speaking or confidence-building workshops to improve your self-assurance.</p>
+            {% elif improvement_areas[0] == "Financial Preparedness" %}
+            <p>Strengthening your Financial Preparedness is crucial. It's important to demonstrate strong financial backing for your education and stay. Consider saving and organizing your financial resources meticulously.</p>
+            {% elif improvement_areas[0] == "Knowledge about Destination Country" %}
+            <p>Deepening your Knowledge about the Destination Country is essential. A thorough understanding of the country's culture, education system, and visa regulations is expected. Invest time in comprehensive research and be prepared to answer questions about your destination.</p>
+            {% elif improvement_areas[0] == "Clarity of Purpose" %}
+            <p>Ensuring absolute Clarity of Purpose is vital. Unclear or ambiguous intentions can raise doubts. Define your goals and objectives clearly, leaving no room for ambiguity or uncertainty.</p>
+            {% endif %}
+        </div>
+        <div class="improvement-area">
+            <p>2nd Area of Most Needed Improvement: <span class="strong-area">{{ improvement_areas[1] }}</span></p>
+            {% if improvement_areas[1] == "Communication Skills" %}
+            <p>Improving your Communication Skills is paramount. The ability to express your intentions clearly and confidently is vital during a visa interview. Consider intensive language courses and real-world practice to enhance your communication.</p>
+            {% elif improvement_areas[1] == "Confidence" %}
+            <p>Boosting your Confidence is essential. Confidence plays a significant role in your visa interview. Consider participating in public speaking or confidence-building workshops to improve your self-assurance.</p>
+            {% elif improvement_areas[1] == "Financial Preparedness" %}
+            <p>Strengthening your Financial Preparedness is crucial. It's important to demonstrate strong financial backing for your education and stay. Consider saving and organizing your financial resources meticulously.</p>
+            {% elif improvement_areas[1] == "Knowledge about Destination Country" %}
+            <p>Deepening your Knowledge about the Destination Country is essential. A thorough understanding of the country's culture, education system, and visa regulations is expected. Invest time in comprehensive research and be prepared to answer questions about your destination.</p>
+            {% elif improvement_areas[1] == "Clarity of Purpose" %}
+            <p>Clarify your purpose by setting clear goals and objectives for your visa application.</p>
+            {% endif %}
+        </div>
+        <p>Strong Area: <span class="strong-area">{{ strong_area }}</span></p>
+        
+    </div>
+</body>
+</html>
